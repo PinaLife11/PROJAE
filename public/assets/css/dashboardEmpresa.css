@@ -1,0 +1,694 @@
+.corpo {
+  overflow-y: visible;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.1s linear;
+}
+
+#overlay.ativo {
+  opacity: 1;
+  visibility: visible;
+}
+
+#editPerfil,
+#novaVaga {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  max-width: 1100px;
+  width: 40%;
+  max-height: 95vh;
+  height: fit-content;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  overflow-y: auto;
+}
+
+#editPerfil.ativo,
+#novaVaga.ativo {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#novaVaga form,
+#editPerfil form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  padding: 20px;
+  gap: 15px;
+}
+
+.tituloForm {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #4938be;
+}
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  color: #4938be;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input,
+.input-desc,
+select.input {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #4938be;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.input:focus,
+.input-desc:focus,
+select.input:focus {
+  border-color: #2f27a8;
+  box-shadow: 0 0 6px rgba(73, 56, 190, 0.3);
+}
+
+.input-desc {
+  height: 150px;
+  resize: none;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn-submit {
+  padding: 10px;
+  border-radius: 7px;
+  background-color: white;
+  color: #4938be;
+  border: #4938be solid 1px;
+  box-shadow: rgba(74, 56, 190, 0.5) 0px 0px 10px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #4938be;
+  box-shadow: rgba(74, 56, 190, 0.5) 0px 0px 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.btn-cancelar {
+  padding: 10px;
+  border-radius: 7px;
+  background-color: white;
+  color: #d81512;
+  border: #d81512 solid 1px;
+  box-shadow: rgba(216, 21, 18, 0.5) 0px 0px 10px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 50%;
+  margin: auto;
+  cursor: pointer;
+}
+
+.btn-cancelar:hover {
+  background-color: #d81512;
+  box-shadow: rgba(216, 21, 18, 0.5) 0px 0px 10px;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.principal {
+  display: flex;
+}
+
+.content {
+  max-width: 1300px;
+}
+
+.perfil {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: rgb(245, 245, 245);
+  box-shadow: 1px 7px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  padding: 25px;
+  width: 100%;
+  height: 250px;
+
+  margin-bottom: 20px;
+}
+
+.detalhesPerfil {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fotoPerfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(225, 225, 225);
+  border-radius: 50%;
+
+  width: 210px;
+  height: 210px;
+}
+
+.fotoPerfil > img {
+  border-radius: 50%;
+  width: 95%;
+  height: 95%;
+}
+
+.telefonePerfil,
+.regiaoPerfil {
+  font-weight: 500;
+}
+
+.btnEditar {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  align-self: flex-start;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: white;
+  border: #4938be solid 1px;
+  box-shadow: rgba(74, 56, 190, 0.2) 0px 0px 10px;
+  color: #4938be;
+  cursor: pointer;
+}
+
+.btnEditar > i {
+  font-size: 20px;
+}
+
+.btnEditar:hover {
+  background-color: #4938be;
+  box-shadow: rgba(74, 56, 190, 0.2) 0px 0px 10px;
+  color: #fff;
+  transition: 0.2s;
+}
+
+@media (max-width: 768px) {
+  #novaVaga,
+  #editPerfil {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .input-desc {
+    height: 120px;
+  }
+}
+
+.pageSelector {
+  display: flex;
+  width: 100%;
+}
+
+.page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  border: none;
+  outline: none;
+  background-color: rgb(245, 245, 245);
+
+  padding: 10px;
+  margin: 0;
+
+  font: inherit;
+  cursor: pointer;
+
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 650;
+  color: #111;
+}
+
+#pageCandidatos,
+#pageVagas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+}
+
+#pageCandidatos {
+  border-top-left-radius: 15px;
+}
+
+#pageVagas {
+  border-top-right-radius: 15px;
+}
+
+.pageCandidatos:hover {
+  border-bottom: 3px solid #4938be;
+  border-radius: 0 0 2% 2%;
+  transition: 0.2s;
+  background-color: lightgray;
+}
+
+.pageVagas:hover {
+  border-bottom: 3px solid #cd0e1a;
+  border-radius: 0 0 2% 2%;
+  transition: 0.2s;
+  background-color: lightgray;
+}
+
+.pageCandidatosAtivo {
+  border-bottom: 3px solid #4938be;
+  border-radius: 0 0 2% 2%;
+  background-color: lightgray;
+}
+
+.pageVagasAtivo {
+  border-bottom: 3px solid #cd0e1a;
+  border-radius: 0 0 2% 2%;
+  background-color: lightgray;
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(245, 245, 245, 0.76);
+  height: fit-content;
+  box-shadow: 1px 7px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px 25px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.titulo {
+  margin-bottom: 25px;
+  background-color: #fff;
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+#listagem {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  gap: 10px;
+
+  border-radius: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  height: fit-content;
+  min-height: 295px;
+
+  background-color: #fff;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  gap: 15px;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardCandidato {
+  gap: 8px;
+  min-height: auto;
+}
+
+.dataPublicacao,
+.dataInscricao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  background: white;
+  color: #444;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cardTitulo {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #333;
+  margin-top: -4px;
+}
+
+.tipo,
+.salario,
+.cidade {
+  display: inline-block;
+  width: fit-content;
+
+  padding: 10px 18px;
+  border-radius: 20px;
+
+  background: rgb(211, 211, 211);
+  border: 1px solid #000000;
+
+  color: #1f1f1f;
+  font-size: 15px;
+  font-weight: 500;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card .cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.dataPublicacao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  background: white;
+  color: #444;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.btn {
+  margin-top: 18px;
+  align-self: center;
+
+  background-color: black;
+  color: white;
+
+  border: none;
+  border-radius: 25px;
+
+  padding: 12px 30px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.excluirVaga {
+  background-color: #fff;
+  border: 1px solid #000000;
+  color: black;
+}
+
+.fecharVaga.aberta {
+  white-space: nowrap;
+  background-color: #cd0e1a;
+}
+
+.fecharVaga.fechada {
+  white-space: nowrap;
+  background-color: #237a00;
+}
+
+.area-scroll {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.nomePerfil,
+.regiaoPerfil {
+  text-transform: uppercase;
+}
+
+.nomePerfil {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #111;
+}
+
+.regiaoPerfil {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+}
+
+.telefonePerfil,
+.regiaoperfil {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.detalhesPerfil > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#nomeCandidato,
+#nomeVaga {
+  line-height: 1.1;
+  color: #111;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.btnAbrirDetalhes,
+.btnSairDetalhes {
+  background-color: #fff;
+  border: 1px solid #000000;
+  color: black;
+}
+
+.cancelarInscricao {
+  white-space: nowrap;
+}
+
+/*  Resolver ↓  */
+
+#detalhesVaga {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  gap: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  max-width: 1100px;
+  width: 70%;
+  height: 90vh;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  z-index: 3;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+#detalhesVaga.ativo,
+#editPerfil.ativo {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 1000;
+}
+
+.confirmacao.ativo {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 2000;
+}
+
+#detalhesVaga > .cardDetalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+#detalhesVaga #data_publicacao_formatada,
+#detalhesVaga #data_inscricao_formatada {
+  font-size: 24px;
+  color: black;
+}
+
+#detalhesVaga #titulo {
+  font-size: 46px;
+  max-width: 675px;
+}
+
+#detalhesVaga #descricao {
+  font-size: 20px;
+  max-width: 675px;
+}
+
+#detalhesVaga #tipo,
+#detalhesVaga #salario,
+#detalhesVaga #cidade {
+  font-size: 18px;
+}
+
+.cardTitulo,
+.nomeEmpresa {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 800;
+  color: #111;
+  text-transform: uppercase;
+}
+
+.nomeEmpresa {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.erro {
+  position: absolute;
+}
+
+.confirmacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  gap: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  max-width: 1100px;
+  width: 35%;
+  height: 30vh;
+  background-color: rgb(245, 245, 245);
+  border-radius: 10px;
+  z-index: 3;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.confirmacao h1 {
+  text-align: center;
+  line-height: 55px;
+}
+
+.confirmacao .cta {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  gap: 30px;
+}
+
+.confirmacao .cta button {
+  border-radius: 25px;
+  padding: 15px;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.confirmacao .cta button:hover {
+  transform: scale(1.05);
+}
+
+.confirmacao .cta button:first-child {
+  background-color: #fff;
+  border: 1px solid #000000;
+}
+
+.confirmacao .cta button:last-child {
+  background-color: #000000;
+  color: white;
+}

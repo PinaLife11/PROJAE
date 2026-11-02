@@ -1,0 +1,195 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
+    height: 600px;
+    width: 60%;
+}
+
+.content > .img{
+    padding-bottom: 40px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 70%;
+    height: 60vh;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.titulo {
+    color: #4938be;
+    font-size: 52px; 
+    font-weight: 800;
+}
+
+.descricao{
+    color: #4938be;
+    font-size: 24px;
+    border-bottom: 2px solid #4938be;
+    line-height: 50px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.input-label {
+    display: flex;
+    flex-direction: column;
+    color: #4938be;
+    font-size: 20px;
+    font-weight: 700;
+    gap: 10px;
+}
+
+.input{
+    padding: 5px 10px;
+    border-radius: 7px;
+    border: 1px solid #4938be;
+    width: 300px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #4938be;
+    box-shadow: 0 0 5px rgba(64, 49, 163, 0.5);
+}
+
+.subtitulo {
+    color: #4938be;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.tipoConta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.tipoConta > a{
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.btn-pessoa, .btn-empresa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    width: 200px;
+    height: 56px;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: white;
+}
+
+.btn-pessoa {
+    border: 1px solid #4938be;
+    color: #4938be;
+}
+
+.btn-empresa {
+    border: 1px solid #cd0e1a;
+    color: #cd0e1a;
+}
+
+.btn-pessoa:hover, .btn-empresa:hover {
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-pessoa:hover {
+    background-color: #4938be;
+        box-shadow: rgba(74, 56, 190, 0.5) 0px 0px 10px;
+        text-shadow: rgba(74, 56, 190, 0.2) 0px 0px 10px;
+}
+
+.btn-empresa:hover {
+    background-color: #cd0e1a;
+    box-shadow: rgba(205, 14, 26, 0.5) 0px 0px 10px;
+    text-shadow: rgba(205, 14, 26, 0.2) 0px 0px 10px;
+}
+
+.pessoa-sub, .empresa-sub {
+    font-size: 18px;
+    margin-top: 3.5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.pessoa-sub {
+    color: #4938be;
+    
+}
+
+.empresa-sub {
+    color: #cd0e1a;
+}
+
+.btn-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    width: 110px;
+    height: 45px;
+    border-radius: 7px; 
+    background-color: white;
+    color: #4938be;
+    border: #4938be solid 1px;
+    box-shadow: rgba(74, 56, 190, 0.5) 0px 0px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    border: none;
+    background-color: #4938be;
+    box-shadow: rgba(74, 56, 190, 0.5) 0px 0px 10px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.link{
+    color: #4938be;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.link:hover {
+    text-shadow: rgba(74, 56, 190, 0.3) 0px 0px 10px;
+    transform: translateY(-1px);
+    transition: transform 0.3s;
+}
+
+/* CSS para o JavaScript */
+
+.ativo {
+    background-color: #4938be;
+    box-shadow: rgba(74, 56, 190, 0.5) 0px 0px 10px;
+    color: #fff;
+}
